@@ -1,3 +1,4 @@
+/* function displayCounter() stores user count locally and increments it for every new visitor of the site. */
 function displayCounter(){
     if (typeof(Storage) !== "undefined") {
         if (localStorage.clickcount) {
@@ -10,6 +11,7 @@ function displayCounter(){
     document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
     }
 }
+/* function validateData() validates the employee data and alerts if empty or incorrect data is entered */
 function validateData()
 {
    if(document.getElementById("fName").value == "")
@@ -55,6 +57,7 @@ function validateData()
     }
     displayBC();
 }
+/* displayBC() function retrieves values from employee object and create the business card with those values */
 function displayBC() {                    
     var employee = {};
     employee.fname = document.getElementById("fName").value;
@@ -69,15 +72,20 @@ function displayBC() {
     document.getElementById("demo").innerHTML = cardHTML; 
     hideControlsForBC();
 }
+
+/* hideControlsForBC() function disables elements for displaying the business card*/
 function hideControlsForBC() {
     document.getElementById("myForm").style.visibility = "hidden";
     document.getElementById("demo").style.visibility = "visible";
     document.getElementById("buttonDisplayBC").style.visibility = "hidden";
-    document.getElementById("h1Val").style.visibility = "hidden";
+    document.getElementById("h2Val").style.visibility = "hidden";
+    document.getElementById("h3Val").style.visibility = "hidden";
     var element = document.getElementById("myForm");
     element.parentNode.removeChild(element);
     element = document.getElementById("buttonDisplayBC");
     element.parentNode.removeChild(element);
-    element = document.getElementById("h1Val");
+    element = document.getElementById("h2Val");
+    element.parentNode.removeChild(element);
+    element = document.getElementById("h3Val");
     element.parentNode.removeChild(element);
 }
